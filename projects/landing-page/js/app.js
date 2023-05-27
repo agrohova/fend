@@ -50,7 +50,7 @@ const mainHeading = document.querySelector('main');
  * create new paragraph, create new text content and append the paragraph as a child to the div element
  * append the whole section to the main heading part of the document
 */
-function addHtmlContent {
+function addHtmlContent() {
     for (let x=4; x<=7; x++) {
         const newSection = document.createElement('section');
         const sectionId = 'section'+ x;
