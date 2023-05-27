@@ -24,6 +24,7 @@
 */
 const mainHeading = document.querySelector('main');
 
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -71,13 +72,36 @@ function addHtmlContent() {
         newParagraph.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.';
         divElement.appendChild(newParagraph);
 
-        mainHeading.appendChild(newSection);
+        mainHeading.append(newSection);
     }
 }
 
 addHtmlContent();
 
 // build the navbar
+const navbarList = document.querySelector('ul');
+const sections = document.querySelectorAll('section');
+const sectionTitle = document.querySelectorAll('h2');
+
+function buildNavbar() {
+    for (let x = 0; x < sections.length; x++) {
+    const section = sections[x];
+    const menuElement = document.createElement('li');
+    const anchorLink = document.createElement('a'); 
+    
+    const menuItem = sectionTitle[x].innerHTML;
+
+    anchorLink.textContent = menuItem;
+    anchorLink.href = `#${section.id}`; 
+    
+    menuElement.appendChild(anchorLink); 
+    menuElement.classList.add('menu__link');
+    
+    navbarList.append(menuElement);
+    }
+}
+
+buildNavbar();
 
 
 // Add class 'active' to section when near top of viewport
