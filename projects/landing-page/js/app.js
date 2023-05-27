@@ -105,9 +105,46 @@ buildNavbar();
 
 
 // Add class 'active' to section when near top of viewport
+const navLinks = document.querySelectorAll('.menu__link');
 
+function makeActive() {
+    for (let x = 0; x < sections.length; x++) {
+        const section = sections[x];
+        const navLink = navLinks[x];
+        const box = section.getBoundingClientRect();
+        
+        if (box.top <= 150 && box.bottom >= 150) {
+            section.classList.add('your-active-class');
+            navLink.classList.add('active');
+        } else {
+            section.classList.remove('your-active-class');
+            navLink.classList.remove('active');
+        }
+    }
+}
 
-// Scroll to anchor ID using scrollTO event
+makeActive();
+
+//* Scroll slowly to the viewport
+const menuLinks = document.querySelectorAll('a');
+
+function slowScrollToViewport() {
+    for (let x = 0; x < sections.length; x++) {
+        const menuLink = menuLinks[x];
+
+        menuLink.addEventListener("click", function (eve) {
+            eve.preventDefault();
+
+            const targetAnchor = document.querySelector(menuLink.getAttribute('href'));
+            if (targetAnchor) {
+                targetAnchor.scrollIntoView({behavior: 'smooth'});
+                makeActive();
+            } 
+        });
+    }
+}
+
+slowScrollToViewport();
 
 
 /**
@@ -116,10 +153,9 @@ buildNavbar();
  * 
 */
 
-// Build menu 
 
 // Scroll to section on link click
 
 // Set sections as active
-
+document.addEventListener("scroll", makeActive);
 

@@ -225,3 +225,7 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+/* Navlink Active Styles */
+.active {
+    background: rgba(3, 99, 35, 0.321);
+}
