@@ -72,13 +72,14 @@ section {
 
 .navbar__menu li {
     display: inline-block;
+
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .navbar__menu .menu__link {
     display: inline-block;
     padding: 1em;
     font-weight: bold;
-    text-decoration: none;
     color: #000;
 }
 
@@ -86,6 +87,9 @@ section {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
+}
+a {
+    text-decoration: none;
 }
 
 /* Header Styles */
