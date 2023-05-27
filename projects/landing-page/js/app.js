@@ -38,7 +38,7 @@
  * 
 */
 
-// build the nav
+// build the navbar
 
 
 // Add class 'active' to section when near top of viewport
