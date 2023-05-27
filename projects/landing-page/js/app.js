@@ -56,8 +56,8 @@ function addHtmlContent() {
         const sectionId = 'section'+ x;
         const sectionNav = 'Section '+ x;
 
-        newSection.setAttribute('id', 'sectionId');
-        newSection.dataset.nav = 'SectionNav';
+        newSection.setAttribute('id', sectionId);
+        newSection.dataset.nav = sectionNav;
 
         const divElement = newSection
         .appendChild(document.createElement('div'));
