@@ -2,12 +2,19 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Project description]
 
-## Instructions
+## Project description
+This project required to build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The project was a part of the Udacity Nano Degree Front End Web Developer and was created from example code provided by Udacity.
 
-To get started, open `js/app.js` and start building out the app's functionality
+Functionalities added to the page:
+- 4 sections of content (4 - 7) were added dynamically
+- navbar added dynamically, sections linked
+- active class to mark a section that's in the viewport
+- slow scrolling to anchor
+- responsive layout for small mobile devices
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+Project was submitted for review on May 29th 2023. All the javascript code was written by me.
+
