@@ -20,36 +20,27 @@
 
 /**
  * Define Global Variables
- * 
+ * This section was suggested by this template.
+ * Other variables needed to be placed below the Add HTML content function, otherwise the code wouldn't work properly on the newly added sections.
 */
 const mainHeading = document.querySelector('main');
 
-
 /**
  * End Global Variables
- * Start Helper Functions
- * 
 */
 
-
-
 /**
- * End Helper Functions
  * Begin Main Functions
  * 
 */
 
 /**
- * function with a loop for addding 4 sections of HTML:
- * new sections will be appended starting after section 4, last section to be created is  nr. 7
- * create variable for dynamic section id and data attribute nav
- * set dynamic id and data attribute
- * create new div element and append it as a child to the section
- * add a class to the div element
- * create a new h2 element and append it as a child to the section
- * set dynamic text content of the h2
- * create new paragraph, create new text content and append the paragraph as a child to the div element
- * append the whole section to the main heading part of the document
+ function to add HTML content 
+ * for loop used for addding 4 sections of HTML:
+ * new sections will be appended starting after section 3, last section to be created is  nr. 7
+ * uses global variable mainheading
+ * uses a for loop instead of for-each, as this is the one I'm most confident in
+ * appends a class landing__container, that was already provided in the CSS file of the project
 */
 function addHtmlContent() {
     for (let x=4; x<=7; x++) {
@@ -78,7 +69,14 @@ function addHtmlContent() {
 
 addHtmlContent();
 
-// build the navbar
+/**
+ function to build the navbar
+ * function with a for loop builds navbar dynamically for every added section
+ * variables for these function need to be declared after the page sections are created dynamically, that's why they're declarad here and not in the global variables section
+ * (if they would be declared at the top, we'd only worked with the original sections)
+ * using classes already provided in the CSS document
+ * creates li and a elements to populate the navbar
+*/
 const navbarList = document.querySelector('ul');
 const sections = document.querySelectorAll('section');
 const sectionTitle = document.querySelectorAll('h2');
@@ -103,8 +101,13 @@ function buildNavbar() {
 
 buildNavbar();
 
-
-// Add class 'active' to section when near top of viewport
+/**
+ function to add class 'active' to section when near top of viewport
+ * using a for loop to iterate through document sections and find which one is active 
+ * the getBoundingclientRect() and the box top and bottom dimensions were recommended in a Udacity Knowledge post
+ * the your-active-class was provided in the CSS file
+ * the active class was created new
+*/
 const navLinks = document.querySelectorAll('.menu__link');
 
 function makeActive() {
@@ -125,7 +128,13 @@ function makeActive() {
 
 makeActive();
 
-//* Scroll slowly to the viewport
+/**
+ Function to scroll slowly to the viewport
+ * using a for loop to add an event listener to the dynamically created menu links (a elements)
+ * using preventDefault() to stop the expected behavior of quick scrolling
+ * my code didn't work when I placed the event listeners somewhere else in the code, that's why they're here
+ * the event listener for this function is in the Events section suggested by this template
+*/
 const menuLinks = document.querySelectorAll('a');
 
 function slowScrollToViewport() {
@@ -152,9 +161,6 @@ slowScrollToViewport();
  * Begin Events
  * 
 */
-
-
-// Scroll to section on link click
 
 // Set sections as active
 document.addEventListener("scroll", makeActive);
