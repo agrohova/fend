@@ -43,10 +43,13 @@ const data = []
 app.post('/addData', addData);
 
 function addData (req, res){
-    const {temperature, date, response} = req.body;
-    const newData = {temperature, date, response}
-    console.log(newData);
-    data.push(newData);
+    const { temperature, date, response } = req.body;
+    projectData.temperature = temperature;
+    projectData.date = date;
+    projectData.userResponse = response;
+
+    console.log(projectData);
+    data.push(projectData);
 // help code - info message
-res.status(200).json({ message: 'Data added successfully' });
+res.status(200).json({ message: 'Data were added!' });
 }
