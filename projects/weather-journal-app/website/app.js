@@ -4,6 +4,19 @@
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
+// Establish GET route to fetch the data from the app endpoint
+let projectData;
+
+const fetchData = async () => {
+  try {
+    const response = await fetch('/data');
+    projectData = await response.json();
+    console.log(projectData);
+  } catch (error) {
+    console.log("Error:", error);
+  }
+};
+
 // Establish POST route
 const postData = async (url = '', data = {}) =>{
     console.log(data);
@@ -23,4 +36,5 @@ const postData = async (url = '', data = {}) =>{
     } catch(error) {
     console.log("error", error)
     }
-}
+};
+
