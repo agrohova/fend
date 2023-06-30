@@ -8,8 +8,8 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #4b0a16;
-    color: #8a770b;
+    background: #a97d85;
+    color: #e6c60c;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -41,7 +41,8 @@ body{
 }
 
 .headline {
-
+    font-size: 40px;
+    text-align: center;
 }
 .title{
 
@@ -57,7 +58,7 @@ input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#73bdd1;
+    background:#761053;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -65,8 +66,8 @@ input{
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 200px;
+    height: 60px;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;
@@ -79,7 +80,7 @@ h1{
 }
 
 textarea{
-    background:#73bdd1;
+    background:#761053;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
