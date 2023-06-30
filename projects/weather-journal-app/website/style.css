@@ -9,6 +9,7 @@ body{
     /* grid-template-columns:  */
     height:100vh;
     background: #a97d85;
+    background: linear-gradient(0deg, #a97d85 0%, #761053 100%);
     color: #e6c60c;
     justify-content: center;
     grid-gap: 1em;
@@ -21,7 +22,7 @@ body{
 }
 
 .entry{
-    background: rgba(59, 74, 107, .4);
+    background: #883f6e
 }
 
 #entryHolder{
@@ -58,7 +59,7 @@ input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#761053;
+    background:#987922;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -68,19 +69,19 @@ input{
 button{
     width: 200px;
     height: 60px;
-    background: #3b4a6b;
-    color: #f0d43a;
+    background:#f0d43a;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+    border-radius: 5px;
 }
 h1{
     font-size: 36px;
 }
 
 textarea{
-    background:#761053;
+    background:#987922;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;

@@ -86,7 +86,7 @@ const updateUI = async() => {
       const allData = await req.json();
       console.log(allData)
        // Write updated data to DOM elements
-      document.getElementById('temp').innerHTML = Math.round(allData.temperature)+ 'degrees';
+      document.getElementById('temp').innerHTML = Math.round(allData.temperature)+ ' degrees';
       document.getElementById('content').innerHTML = allData.userResponse;
       document.getElementById("date").innerHTML = allData.date;
       
