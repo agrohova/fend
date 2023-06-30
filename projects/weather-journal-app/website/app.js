@@ -46,21 +46,6 @@ function performAction(e) {
 //Promise that makes a POST request to add the API data, as well as data entered by the user, to your app. 
 //--> async function to make this POST request - should receive a path and a data object - data object should include temperature, date and user response
 
-const updateUI = async() => {
-  const req = await fetch('http://localhost:8000/data');
-  try{
-      const allData = await req.json();
-      document.getElementById('date').innerHTML = `Date: ${allData.date}`;
-      document.getElementById('temp').innerHTML = `Temperature: ${allData.temperature}°`;
-      document.getElementById('content').innerHTML = `Mood: ${allData.response}`;
-  }catch(error){
-      console.log("error", error);
-  }
-}
-
-// Updates UI dynamically: async function that is called after the completed POST request
-//This function should retrieve data from our app, select the necessary elements on the DOM (index.html), and then update their necessary values to reflect the dynamic values for Temperature, Date and User input
-
 const postData = async (url = '', data = {}) =>{
   console.log(data);
       const response = await fetch(url, {
@@ -80,6 +65,22 @@ const postData = async (url = '', data = {}) =>{
   console.log("error", error)
   }
 };
+
+// Updates UI dynamically: async function that is called after the completed POST request
+//This function should retrieve data from our app, select the necessary elements on the DOM (index.html), and then update their necessary values to reflect the dynamic values for Temperature, Date and User input
+const updateUI = async() => {
+  const req = await fetch('/data');
+  try{
+      const allData = await req.json();
+      console.log(allData)
+       // Write updated data to DOM elements
+      document.getElementById('date').innerHTML = `Date: ${allData.date}`;
+      document.getElementById('temp').innerHTML = `Temperature: ${allData.temperature}°`;
+      document.getElementById('content').innerHTML = `Mood: ${allData.response}`;
+  }catch(error){
+      console.log("error", error);
+  }
+}
 
 // Establish GET route to fetch the data from the app endpoint
 let projectData;
