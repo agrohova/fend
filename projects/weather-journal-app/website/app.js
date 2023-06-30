@@ -62,7 +62,7 @@ const postData = async (url = '', data = {}) =>{
       console.log(newData);
       return newData;
   } catch(error) {
-  console.log("error", error)
+    console.log("error", error);
   }
 };
 
@@ -74,11 +74,12 @@ const updateUI = async() => {
       const allData = await req.json();
       console.log(allData)
        // Write updated data to DOM elements
-      document.getElementById('date').innerHTML = `Date: ${allData.date}`;
-      document.getElementById('temp').innerHTML = `Temperature: ${allData.temperature}°`;
-      document.getElementById('content').innerHTML = `Mood: ${allData.response}`;
+      document.getElementById('temp').innerHTML = Math.round(allData.temp)+ 'degrees';
+      document.getElementById('content').innerHTML = allData.feel;
+      document.getElementById("date").innerHTML = allData.date;
+      
   }catch(error){
-      console.log("error", error);
+    console.log("error", error);
   }
 }
 
@@ -91,12 +92,6 @@ const fetchData = async () => {
     projectData = await response.json();
     console.log(projectData);
   } catch (error) {
-    console.log("Error:", error);
+    console.log("error", error);
   }
 };
-
-//test code--delete before submitting
-fetchData();
-
-postData('/addData', { temperature: 25, date: newDate, response: 'Sample response' });
-
