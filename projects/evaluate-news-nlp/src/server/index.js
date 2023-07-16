@@ -67,6 +67,7 @@ const postMeaningCloud = async (urlData) => {
   
     try {
       const data = await response.json();
+      console.log('API Response:', data);
       return data;
     } catch (error) {
       console.log('error', error);
