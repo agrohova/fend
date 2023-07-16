@@ -18,7 +18,7 @@ async function handleSubmit(event) {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*"
             },
-            body: JSON.stringify(formText), 
+            body: JSON.stringify({url: formText}), 
         });
 
         console.log("RawData", rawData);
