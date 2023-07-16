@@ -9,12 +9,15 @@ async function handleSubmit(event) {
     event.preventDefault();
 
     let formText = document.getElementById("url").value;
-
+    console.log('form submitted');
     if (formText.trim() !== "") {
         const rawData = await fetch("http://localhost:8081/submitData", {
             method: "POST",
             credentials: "same-origin",
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
             body: JSON.stringify(formText), 
         });
 
