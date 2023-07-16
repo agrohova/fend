@@ -23,9 +23,9 @@
 
     <main>
         <section>
-            <form class="">
-                <input id="url" type="text" name="input" value="" onblur="onBlur()" placeholder="URL">
-                <input type="submit" name="" value="Submit" onclick="handleSubmit(event)">
+            <form onsubmit="return handleSubmit(event)">
+                <input id="url" type="text" value="" onblur="onBlur()" placeholder="URL">
+                <input type="submit" value="Submit">
             </form>
         </section>
 
@@ -52,5 +52,6 @@
     </footer>
 
     <script src="../js/formHandler.js"></script>
+    <script src="../js/checkURL.js"></script>
 </body>
 </html>
