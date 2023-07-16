@@ -69,7 +69,7 @@ const postMeaningCloud = async (urlData) => {
       })
       .catch((error) => {
         console.log('error', error);
-        res.status(500).send({ error: "Error processing the request." });
+        res.status(500).send({ error: 'Error processing the request.' });
     });
   });
   
