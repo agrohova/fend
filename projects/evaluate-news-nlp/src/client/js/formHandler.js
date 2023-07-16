@@ -35,7 +35,6 @@ async function handleSubmit(event) {
   
 export function updateUI(data) {
     document.getElementById("score_tag").innerHTML = `Score Tag: ${data.score_tag}`;
-    document.getElementById("model").innerHTML = `Model: ${data.model}`;
     document.getElementById("agreement").innerHTML = `Agreement: ${data.agreement}`;
     document.getElementById("subjectivity").innerHTML = `Subjectivity: ${data.subjectivity}`;
     document.getElementById("confidence").innerHTML = `Confidence: ${data.confidence}`;
