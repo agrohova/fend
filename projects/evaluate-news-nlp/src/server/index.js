@@ -1,33 +1,30 @@
+//modules
+const path = require('path');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
+
+const dotenv = require('dotenv');
+dotenv.config({ path: "./.env" });
+
 //project data
 let projectData = {};
 
 const apiKey = process.env.API_KEY;
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
 
-
-//modules
-
-const dotenv = require('dotenv');
-dotenv.config();
-
-const path = require('path');
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
-const mockAPIResponse = require('./mockAPI.js');
-
 //app
 const app = express()
 app.use(cors());
 app.use(bodyParser.text());
 app.use(bodyParser.json());
-app.use(express.static('dist'))
+app.use(express.static(path.join(__dirname, "../../dist")));
 
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    res.sendFile(path.join(__dirname, '../../dist/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
