@@ -14,7 +14,6 @@ dotenv.config({ path: "./.env" });
 //app
 const app = express()
 app.use(cors());
-app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../../dist")));
 
