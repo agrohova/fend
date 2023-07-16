@@ -5,8 +5,8 @@ This project is part of the Front End Web Developer Nanodegree program offered b
 ## How to Run the App
 
 1. Clone this repository to your local machine.
-2. Install the necessary dependencies by running `npm install` in the project directory.
-3. Obtain an API key from Aylien by signing up on their website.
+2. Install the necessary dependencies by running `npm install --legacy-peer-deps` in the project directory.
+3. Obtain an API key from Meaning Cloud by signing up on their website.
 4. Create a `.env` file in the root of the project and add your API key using the following format: `API_KEY=your_api_key`.
 5. Start the development server by running `npm run start`.
 6. Open your browser and navigate to `http://localhost:8080` to access the app.
