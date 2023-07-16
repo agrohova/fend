@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config({ path: "./.env" });
+
 //modules
 const path = require('path');
 const express = require('express');
@@ -34,6 +37,22 @@ app.listen(8081, function () {
 
 //API POST request to MeaningCloud
 
+//define HTTP POST route
+
+app.post("/submitData", (req, res) => {
+  console.log(req.body.url);
+  const urlData = req.body.url;
+  postMeaningCloud(urlData)
+    .then((analysisResult) => {
+      Object.assign(projectData, analysisResult);
+      res.status(200).send({ success: true });
+    })
+    .catch((error) => {
+      console.log('error', error);
+      res.status(500).send({ error: 'Error processing the request.' });
+  });
+});
+
 //make POST request to analyze sentiment
 
 const postMeaningCloud = async (urlData) => {
@@ -56,23 +75,8 @@ const postMeaningCloud = async (urlData) => {
     }
   };
   
-  //define HTTP POST route
-
-  app.post("/submitData", (req, res) => {
-    const urlData = req.body.url;
-    postMeaningCloud(urlData)
-      .then((analysisResult) => {
-        Object.assign(projectData, analysisResult);
-        res.status(200).send({ success: true });
-      })
-      .catch((error) => {
-        console.log('error', error);
-        res.status(500).send({ error: 'Error processing the request.' });
-    });
-  });
-  
   //define HTTP GET route
   app.get("/analysis", (req, res) => {
-    res.send({ projectData });
+    res.sendFile(path.resolve('src/client/views/index.html'));
   });
   
