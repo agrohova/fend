@@ -1,6 +1,6 @@
 //import JS
-import { checkURL } from './js/checkURL'
-import { handleSubmit } from './js/formHandler'
+import { checkURL } from './js/checkURL';
+import { handleSubmit } from './js/formHandler';
 
 //import scss
 import './styles/resets.scss'
