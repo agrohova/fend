@@ -8,18 +8,18 @@ const fetch = require('node-fetch');
 const dotenv = require('dotenv');
 dotenv.config({ path: "./.env" });
 
-//project data
-let projectData = {};
-
-const apiKey = process.env.API_KEY;
-const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
-
 //app
 const app = express()
 app.use(cors());
 app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../../dist")));
+
+//project data
+let projectData = {};
+
+const apiKey = process.env.API_KEY;
+const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
 
 console.log(__dirname)
 
@@ -42,6 +42,7 @@ const postMeaningCloud = async (urlData) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify(urlData),
     });
