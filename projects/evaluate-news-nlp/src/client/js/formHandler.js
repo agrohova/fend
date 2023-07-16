@@ -1,5 +1,6 @@
 // adding event listener
 document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("submit-btn");
     button.addEventListener("click", handleSubmit);
   });
 
