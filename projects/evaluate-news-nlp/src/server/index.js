@@ -44,24 +44,24 @@ app.post("/submitData", (req, res) => {
 });
 
 //make POST request to analyze sentiment
-//this part of the code was copied from the API documentation here: https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/dev-tools
-const formdata = new FormData();
-formdata.append("key", apiKey);
-formdata.append("txt", urlData);
-formdata.append("lang", "en");  
 
-const requestOptions = {
-  method: 'POST',
-  body: formdata,
-  redirect: 'follow'
-}
+const meaningCloud = async (urlData) => {
+    const meaningCloudUrl = `${baseURL}key=${apiKey}&lang=en&txt=HTML&url=${urlData}&model=general`;
+    const response = await fetch(meaningCloudUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify(urlData),
+    });
   
-const response = fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
-  .then(response => ({
-    status: response.status, 
-    body: response.json()
-  }))
-  .then(({ status, body }) => console.log(status, body))
-  .catch(error => console.log('error', error));
-
-  
+    try {
+      const data = await response.json();
+      console.log('API Response:', data);
+      return data;
+    } catch (error) {
+      console.log('error', error);
+      throw error;
+    }
+  };
