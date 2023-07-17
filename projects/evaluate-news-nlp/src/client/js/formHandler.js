@@ -9,9 +9,9 @@ async function handleSubmit(event) {
     event.preventDefault();
 
     let formText = document.getElementById("url").value;
-    console.log('form submitted');
+
     if (formText.trim() !== "") {
-        const rawData = await fetch("http://localhost:8081/submitData", {
+        const rawData = await fetch("http://localhost:8080/submitData", {
             method: "POST",
             credentials: "same-origin",
             headers: { 
@@ -21,10 +21,12 @@ async function handleSubmit(event) {
             body: JSON.stringify({url: formText}), 
         });
 
-        console.log("RawData", rawData);
         if (rawData.ok) {
-            const data = await rawData.json();
-            updateUI(data);
+            const response = await rawData.json();
+            const analysisResult = response;
+            console.log("Analysis Result:", analysisResult);
+            updateUI(analysisResult);
+
         } else {
             alert("Error processing the request. Please try again later.");
         }
@@ -32,7 +34,7 @@ async function handleSubmit(event) {
         alert("Please input a valid URL");
     }
 }
-  
+
 export function updateUI(data) {
     document.getElementById("score_tag").innerHTML = `Score Tag: ${data.score_tag}`;
     document.getElementById("agreement").innerHTML = `Agreement: ${data.agreement}`;
