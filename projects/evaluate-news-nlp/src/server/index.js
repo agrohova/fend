@@ -12,10 +12,7 @@ const fetch = require('node-fetch');
 const app = express()
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "../../dist")));
-
-const apiKey = process.env.API_KEY;
-const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
+app.use(express.static('dist'));
 
 // designates what port the app will listen to for incoming requests
 app.listen(8081, function () {
@@ -24,16 +21,18 @@ app.listen(8081, function () {
 
 //define HTTP GET route
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../../dist/index.html'))
+  res.sendFile('dist/index.html')
 })
 
 //API POST request to MeaningCloud
+const apiKey = process.env.API_KEY;
+const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
 
-//define HTTP POST route
+//define HTTP POST route to receive article to analyze
 
 app.post("/submitData", (req, res) => {
-  console.log(req.body.url);
-  const urlData = req.body.url;
+
+  let urlData = req.body.url;
   meaningCloud(urlData)
     .then((analysisResult) => {
       res.status(200).send(analysisResult);
