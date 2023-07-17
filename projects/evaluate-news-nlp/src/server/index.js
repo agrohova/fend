@@ -47,15 +47,7 @@ app.post("/submitData", (req, res) => {
 
 const meaningCloud = async (urlData) => {
     const meaningCloudUrl = `${baseURL}key=${apiKey}&lang=en&txt=HTML&url=${urlData}&model=general`;
-    const response = await fetch(meaningCloudUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-        "Access-Control-Allow-Origin": "*"
-      },
-      body: JSON.stringify(urlData),
-    });
-  
+    const response = await fetch(meaningCloudUrl)
     try {
       const data = await response.json();
       console.log('API Response:', data);
