@@ -15,7 +15,7 @@ async function handleSubmit(event) {
             method: "POST",
             credentials: "same-origin",
             headers: { 
-                "Content-Type": "application/json",
+                "Content-Type": "application/json; charset=UTF-8",
                 "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify({url: formText}), 
