@@ -14,8 +14,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../../dist")));
 
+//project data
+let projectData = {};
+
 const apiKey = process.env.API_KEY;
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
+
+console.log(__dirname)
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../../dist/index.html'))
@@ -35,7 +40,8 @@ app.post("/submitData", (req, res) => {
   const urlData = req.body.url;
   meaningCloud(urlData)
     .then((analysisResult) => {
-      res.status(200).send(analysisResult);
+      Object.assign(projectData, analysisResult);
+      res.status(200).send({ success: true });
     })
     .catch((error) => {
       console.log('error', error);
@@ -43,7 +49,7 @@ app.post("/submitData", (req, res) => {
   });
 });
 
-//make request to analyze sentiment
+//make POST request to analyze sentiment
 
 const meaningCloud = async (urlData) => {
     const meaningCloudUrl = `${baseURL}key=${apiKey}&lang=en&txt=HTML&url=${urlData}&model=general`;
