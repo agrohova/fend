@@ -8,6 +8,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 
+const dotenv = require('dotenv');
+dotenv.config({ path: "./.env" });
+
 //app
 const app = express()
 app.use(cors());
@@ -38,7 +41,7 @@ app.listen(8081, function () {
 app.post("/submitData", (req, res) => {
   console.log(req.body.url);
   const urlData = req.body.url;
-  meaningCloud(urlData)
+  postMeaningCloud(urlData)
     .then((analysisResult) => {
       Object.assign(projectData, analysisResult);
       res.status(200).send({ success: true });
@@ -51,7 +54,7 @@ app.post("/submitData", (req, res) => {
 
 //make POST request to analyze sentiment
 
-const meaningCloud = async (urlData) => {
+const postMeaningCloud = async (urlData) => {
     const meaningCloudUrl = `${baseURL}key=${apiKey}&lang=en&txt=HTML&url=${urlData}&model=general`;
     const response = await fetch(meaningCloudUrl, {
       method: "POST",
