@@ -5,21 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 // event - prevents the default for submission, retrieves the URL from form and makes a POST request
-async function handleSubmit(event) {
-    event.preventDefault();
+function handleSubmit(e) {
+    e.preventDefault()
 
-    let formText = document.getElementById("url").value;
-    console.log(formText + 'was submitted for analysis');
+    let urlData = document.getElementById("url").value;
+    console.log(urlData + 'was submitted for analysis');
     if (formText.trim() !== "") {
-        const rawData = await fetch("/submitData", {
-            method: "POST",
-            credentials: "same-origin",
-            headers: { 
-                "Content-Type": "application/json; charset=UTF-8",
-                "Access-Control-Allow-Origin": "*"
-            },
-        });
-
+        const rawData = await fetch("/submitData");
         console.log("RawData", rawData);
         if (rawData.ok) {
             const data = await rawData.json();
