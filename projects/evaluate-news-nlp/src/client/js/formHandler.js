@@ -4,11 +4,11 @@ import { checkURL } from './checkURL.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("submit-btn");
-    button.addEventListener("click", handleSubmit);
+    button.addEventListener("click", formHandler);
   });
 
 // event - prevents the default for submission, retrieves the URL from form and makes a POST request
-async function handleSubmit(event) {
+async function formHandler(event) {
     event.preventDefault();
   
     let formText = document.getElementById("url").value;
@@ -52,4 +52,4 @@ async function handleSubmit(event) {
     document.getElementById("irony").innerHTML = `Irony: ${analysisResult.irony}`;
   }
   
-  export { handleSubmit };
+  export { formHandler };
