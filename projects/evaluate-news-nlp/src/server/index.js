@@ -19,21 +19,32 @@ const baseURL = "https://api.meaningcloud.com/sentiment-2.1?";
 
 console.log(__dirname)
 
+//define HTTP GET route
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../../dist/index.html'))
 })
 
-// designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
-})
+//define HTTP POST route
 
-//API POST request to MeaningCloud
+app.post("/submitData", (req, res) => {
+  console.log(req.body.url);
+  const urlData = req.body.url;
+  postMeaningCloud(urlData)
+    .then((analysisResult) => {
+      res.status(200).send({ success: true, data: analysisResult});
+      console.log('Analysis Result:', analysisResult);
+    })
+    .catch((error) => {
+      console.log('error', error);
+      res.status(500).send({ error: 'Error processing the request.' });
+  });
+});
 
 //make POST request to analyze sentiment
 
 const postMeaningCloud = async (urlData) => {
-  const meaningCloudUrl = `${baseURL}key=${apiKey}&lang=en&txt=HTML&url=${urlData}&model=general`;
+  const meaningCloudUrl = `${baseURL}key=${apiKey}&lang=en&url=${urlData}&model=general`;
   
   try {
     const response = await fetch(meaningCloudUrl, {
@@ -53,22 +64,7 @@ const postMeaningCloud = async (urlData) => {
   }
 };
 
-//define HTTP POST route
-
-app.post("/submitData", (req, res) => {
-  console.log(req.body.url);
-  const urlData = req.body.url;
-  postMeaningCloud(urlData)
-    .then((analysisResult) => {
-      res.status(200).send({ success: true, data: analysisResult});
-      console.log('Analysis Result:', analysisResult);
-    })
-    .catch((error) => {
-      console.log('error', error);
-      res.status(500).send({ error: 'Error processing the request.' });
-  });
-});
-
-
-
-  
+// designates what port the app will listen to for incoming requests
+app.listen(8080, function () {
+  console.log('Example app listening on port 8080!')
+})

@@ -11,12 +11,11 @@ async function handleSubmit(event) {
     let formText = document.getElementById("url").value;
 
     if (formText.trim() !== "") {
-        const rawData = await fetch("http://localhost:8080/submitData", {
+        const rawData = await fetch("/submitData", {
             method: "POST",
             credentials: "same-origin",
             headers: { 
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
             },
             body: JSON.stringify({url: formText}), 
         });
@@ -25,7 +24,7 @@ async function handleSubmit(event) {
             const response = await rawData.json();
             const analysisResult = response;
             console.log("Analysis Result:", analysisResult);
-            updateUI(analysisResult);
+            updateUI(response);
 
         } else {
             alert("Error processing the request. Please try again later.");
@@ -35,12 +34,12 @@ async function handleSubmit(event) {
     }
 }
 
-export function updateUI(data) {
-    document.getElementById("score_tag").innerHTML = `Score Tag: ${data.score_tag}`;
-    document.getElementById("agreement").innerHTML = `Agreement: ${data.agreement}`;
-    document.getElementById("subjectivity").innerHTML = `Subjectivity: ${data.subjectivity}`;
-    document.getElementById("confidence").innerHTML = `Confidence: ${data.confidence}`;
-    document.getElementById("irony").innerHTML = `Irony: ${data.irony}`;
-  }
-  
 export { handleSubmit };
+
+export function updateUI(response) {
+    document.getElementById("score_tag").innerHTML = `Score Tag: ${response.score_tag}`;
+    document.getElementById("agreement").innerHTML = `Agreement: ${response.agreement}`;
+    document.getElementById("subjectivity").innerHTML = `Subjectivity: ${response.subjectivity}`;
+    document.getElementById("confidence").innerHTML = `Confidence: ${response.confidence}`;
+    document.getElementById("irony").innerHTML = `Irony: ${response.irony}`;
+  }

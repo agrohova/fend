@@ -3,11 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>NLP sentiment analysis</title>
-
+    <script type="text.javascript" src="./main.js"></script>
 </head>
-
 <body>
-
     <header>
         <div class="container">
             Logo
@@ -18,8 +16,8 @@
     </header>
     <main>
         <section>
-            <form onsubmit="return handleSubmit(event)">
-                <input id="url" type="text" value="" onblur="onBlur()" placeholder="URL">
+            <form class =''>
+                <input id="url" type="text" value="" onblur="onBlur()" placeholder="enter URL here">
                 <input id="submit-btn" type="submit" value="Submit">
             </form>
         </section>
@@ -27,23 +25,18 @@
         <section>
             <strong>Results:</strong>
             <div>
-
                 <span id="score_tag"></span>
             </div>
             <div>
-
                 <span id="agreement"></span>
             </div>
             <div>
-
                 <span id="subjectivity"></span>
             </div>
             <div>
-
                 <span id="confidence"></span>
             </div>
             <div>
-
                 <span id="irony"></span>
             </div>
         </section>
