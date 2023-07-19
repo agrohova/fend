@@ -7,7 +7,6 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
-    testEnvironment: "node",
     module: {
         rules: [
             {

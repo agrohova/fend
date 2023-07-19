@@ -13,7 +13,9 @@ async function handleSubmit(event) {
   
     let formText = document.getElementById("url").value;
   
-    if (checkURL(formText)) {
+    if (formText === "") {
+      alert("Please enter valid URL");
+    } else if (checkURL(formText)) {
       console.log("::: Form Submitted :::")
       const rawData = await fetch("/submitData", {
         method: "POST",
