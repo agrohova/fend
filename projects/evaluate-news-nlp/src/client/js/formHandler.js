@@ -1,4 +1,7 @@
+import { checkURL } from './checkURL.js';
+
 // adding event listener
+
 document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("submit-btn");
     button.addEventListener("click", handleSubmit);
@@ -10,7 +13,8 @@ async function handleSubmit(event) {
   
     let formText = document.getElementById("url").value;
   
-    if (formText.trim() !== "") {
+    if (checkURL(formText)) {
+      console.log("::: Form Submitted :::")
       const rawData = await fetch("/submitData", {
         method: "POST",
         credentials: "same-origin",
