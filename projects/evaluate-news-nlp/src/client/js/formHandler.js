@@ -2,11 +2,12 @@ import { checkURL } from './checkURL.js';
 
 // adding event listener
 
+if (typeof window !== 'undefined') { // - this is for testing purposes
 document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("submit-btn");
     button.addEventListener("click", formHandler);
   });
-
+}
 // event - prevents the default for submission, retrieves the URL from form and makes a POST request
 async function formHandler(event) {
     event.preventDefault();
@@ -43,7 +44,7 @@ async function formHandler(event) {
   }
   
   // Declare the updateUI function separately
-  export function updateUI(analysisResult) {
+  export function updateUI(analysisResult, document) {
     console.log('Updating UI with data:', analysisResult);
     document.getElementById("score_tag").innerHTML = `Score Tag: ${analysisResult.score_tag}`;
     document.getElementById("agreement").innerHTML = `Agreement: ${analysisResult.agreement}`;
