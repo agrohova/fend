@@ -11,6 +11,11 @@ This project is part of the Front End Web Developer Nanodegree program offered b
 5. Start the development server by running `npm run start`.
 6. Open your browser and navigate to `http://localhost:8080` to access the app.
 
+## How to Run the tests
+
+1. Make sure you're using node 18.16.1 to run the test scripts to avoid Jest syntax errors
+2. run the command npm run test
+
 ## Dependencies
 
 The project uses the following dependencies:
