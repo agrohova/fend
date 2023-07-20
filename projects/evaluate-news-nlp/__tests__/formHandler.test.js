@@ -6,7 +6,7 @@ describe('updateUI', () => {
   let document;
 
   beforeEach(() => {
- // Mock the necessary DOM elements
+ // Simulate HTML code as a string? (as jest cannot work with HTML, it only works with JS)
  const htmlContent = `
  <div id="score_tag"></div>
  <div id="agreement"></div>
@@ -15,7 +15,7 @@ describe('updateUI', () => {
  <div id="irony"></div>
 `;
 
-// Create a simulated DOM
+// Create mock DOM with JSDOM -- WARNING! This will only work with the newest version of Node.js, otherwise it's going to throw a syntax error
 dom = new JSDOM(htmlContent);
 document = dom.window.document;
 });

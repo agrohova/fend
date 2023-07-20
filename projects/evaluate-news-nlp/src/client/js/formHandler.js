@@ -44,6 +44,7 @@ async function formHandler(event) {
   }
   
   // Declare the updateUI function separately
+  // added the "document" there for the function to work with the test script
   export function updateUI(analysisResult, document) {
     console.log('Updating UI with data:', analysisResult);
     document.getElementById("score_tag").innerHTML = `Score Tag: ${analysisResult.score_tag}`;
