@@ -6,9 +6,28 @@ body {
 
 main {
     flex: 2;
+    background: #a97d85;
+    background: linear-gradient(0deg, #a97d85 0%, #761053 100%);
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
+}
+
+.results {
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    color: #f0d43a;
+    line-height: 1.5;
+}
+
+#submit-btn {
+    background: #60043d;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    color: #f0d43a;
+    line-height: 1.5;
 }

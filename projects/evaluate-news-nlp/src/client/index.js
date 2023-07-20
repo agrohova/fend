@@ -1,6 +1,6 @@
 //import JS
 import { checkURL } from './js/checkURL';
-import { handleSubmit } from './js/formHandler';
+import { formHandler } from './js/formHandler';
 
 //import scss
 import './styles/resets.scss'
@@ -10,4 +10,4 @@ import './styles/form.scss'
 import './styles/header.scss'
 
 //export JS
-export { checkURL, handleSubmit };
+export { checkURL, formHandler };
