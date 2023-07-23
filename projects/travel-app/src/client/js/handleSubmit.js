@@ -14,22 +14,23 @@ async function handleSubmit(event) {
 
   try {
     // Make API requests and wait for all of them to complete using Promise.all
-    const [geonamesData, weatherData, pixabayData] = await Promise.all([
+    const [geonamesData, pixabayData] = await Promise.all([
       postRequest(`${serverURL}/geo`, { city }),
-      postRequest(`${serverURL}/weather`, { lat, lon }),
       postRequest(`${serverURL}/pixabay`, { city })
     ]);
 
     // Extract data from the responses
     const { lat, lon } = geonamesData.data[0];
+    const weatherData = await postRequest(`${serverURL}/weather`, { lat, lon });
+
     const weather = weatherData.data[0].weather.description;
     const pic = pixabayData.data.hits[0].webformatURL;
 
     // Combine all data and update the UI
     const tripData = {
       city,
-      weather: weatherData.data[0].weather.description,
-      pic: pixabayData.data.hits[0].webformatURL
+      weather,
+      pic
     };
 
     updateUI(tripData);
