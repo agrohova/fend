@@ -2,8 +2,7 @@
 function todaysDate() {
     let now = new Date();
     let day = now.getDate();
-    //let month = String(now.getMonth() + 1).padStart(2, '0'); //January is 0, so we add +1 to match the normal calendar order
-    let month = now.getMonth() + 1;
+    let month = now.getMonth() + 1; //January is 0, so we add +1 to match the normal calendar order
     let year = now.getFullYear();
 
     let today = day + "/" + month + "/" + year;
@@ -11,15 +10,15 @@ function todaysDate() {
     return today //this says what day is it today
 }
 
-console.log('today is ' + today);
+console.log('today is ' + todaysDate());
 
 //export function
 export {todaysDate}
 
 //function to obtain time to departure
-function timeToDep(date) {
+function timeToDep(tripDate) {
 
-    let dateFuture = new Date(date);
+    let dateFuture = new Date(tripDate);
     let todayDate = new Date();
     let dateDiff = dateFuture - todayDate;
     let timeInDays = Math.ceil(dateDiff / (1000 * 60 * 60 * 24)); //time is in milliseconds, so therefore the math

@@ -14,6 +14,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../../dist")));
 
+// designates what port the app will listen to for incoming requests
+app.listen(4000, function () {
+  console.log('Example app listening on port 4000!')
+})
+
 //define HTTP GET route
 app.get('/allData', (req, res) => {
   try{
@@ -27,9 +32,4 @@ app.get('/allData', (req, res) => {
 app.post("/tripData", (req, res) => {
   const cityName = req.body.city;
   const tripDate = req.body.date;
-})
-
-// designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!')
 })

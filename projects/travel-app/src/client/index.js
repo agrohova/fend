@@ -1,12 +1,22 @@
 //import JS
-import { xxfunctionxx } from './js/app'; //change that name
+import { getLatLon } from './js/app.js'; 
+import { getWeather } from './js/app.js'; 
+import { getPics } from './js/app.js'; 
+import { todaysDate } from './js/tripCountdown.js';
+import { timeToDep } from './js/tripCountdown.js';
+import { getGeonames } from './js/app.js'; 
+import { getWeatherbit } from './js/app.js'; 
+import { getPixabay } from './js/app.js'; 
 
 //import scss
-import './styles/resets.scss'
-import './styles/base.scss'
-import './styles/footer.scss'
-import './styles/form.scss'
-import './styles/header.scss'
+import './styles/style.scss'
 
 //export JS
-export { xxfunctionxx }; //change that name
+export { getLatLon }; 
+export { getWeather };
+export { getPics };
+export { todaysDate };
+export { timeToDep };
+export { getGeonames };
+export { getWeatherbit };
+export { getPixabay };
