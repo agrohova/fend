@@ -29,7 +29,50 @@ app.get('/allData', (req, res) => {
 });
 
 //define HTTP POST route
-app.post("/tripData", (req, res) => {
+
+//Geonames API
+app.post("/geo", (req, res) => {
   const cityName = req.body.city;
-  const tripDate = req.body.date;
+
+  postGeonames(cityName)
+    .then((geoResult) => {
+      res.status(200).send({ success: true, data: geoResult});
+      console.log('Geonames result:', geoResult);
+    })
+    .catch((error) => {
+      console.log('error', error);
+      res.status(500).send({ error: 'Error processing the request.' });
+  });
 })
+
+//Weatherbit API
+
+app.post("/weather", (req, res) => {
+  const lat=geoResult[0].lat
+  const lon=geoResult[0].lon
+
+  postWeatherbit(lat, lon)
+    .then((weatherResult) => {
+      res.status(200).send({ success: true, data: weatherResult});
+      console.log('Weatherbit result:', weatherResult);
+    })
+    .catch((error) => {
+      console.log('error', error);
+      res.status(500).send({ error: 'Error processing the request.' });
+  });
+})
+
+//Pixabay API
+app.post("/pixabay", (req, res) => {
+  postPixabay(cityName)
+    .then((picResult) => {
+      res.status(200).send({ success: true, data: picResult});
+      console.log('Pixabay result:', picResult);
+    })
+    .catch((error) => {
+      console.log('error', error);
+      res.status(500).send({ error: 'Error processing the request.' });
+  });
+})
+
+module.exports = app;
