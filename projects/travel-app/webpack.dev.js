@@ -3,6 +3,13 @@ const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
+    devServer: {
+        proxy: {
+          '/geo': 'http://localhost:4000',
+          '/weather': 'http://localhost:4000',
+          '/pixabay': 'http://localhost:4000'
+        }
+      },
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',

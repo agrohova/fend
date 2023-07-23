@@ -66,6 +66,6 @@ const postMeaningCloud = async (urlData) => {
 };
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!')
+app.listen(4040, function () {
+  console.log('Example app listening on port 4040!')
 })
