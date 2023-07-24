@@ -21,6 +21,7 @@ async function getWeather(lat, lon) {
   try {
     const response = await fetch(weatherUrl, {
       method: "GET",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },

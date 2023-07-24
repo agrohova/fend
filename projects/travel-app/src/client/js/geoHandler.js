@@ -18,6 +18,7 @@ async function getLatLon(cityName) {
   try {
     const response = await fetch(geonamesUrl, {
       method: "GET",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },

@@ -18,6 +18,7 @@ async function getPics(cityNamePix) {
   try {
     const response = await fetch(pixabayUrl, {
       method: "GET",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json; charset=UTF-8",
       },
