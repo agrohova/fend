@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-dotenv.config({ path: "./.env" });
+dotenv.config = require("../../.env")
 
 // Geonames API
 const userName1 = process.env.USER_NAME1;

@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { apiKey3, baseURL3 } = require('./apiConfig');
+const { apiKey3, baseURL3 } = require('../apiConfig');
 
 async function handlePixabayRequest(req, res) {
   const cityNamePix = req.body.city;

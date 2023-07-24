@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { userName1, baseURL1 } = require('./apiConfig');
+const { userName1, baseURL1 } = require('../apiConfig');
 
 async function handleGeonamesRequest(req, res) {
   const cityName = req.body.city;

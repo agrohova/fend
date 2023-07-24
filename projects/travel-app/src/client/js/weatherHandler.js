@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { apiKey2, baseURL2 } = require('./apiConfig');
+const { apiKey2, baseURL2 } = require('../apiConfig')
 
 async function handleWeatherbitRequest(req, res) {
   const cityName = req.body.city;

@@ -1,7 +1,9 @@
 const dotenv = require('dotenv');
-dotenv.config({ path: "./.env" });
+dotenv.config = require("../../.env")
 
-const apiHandlers = require('./apiHandlers');
+const geoHandler = require('../client/js/geoHandler');
+const picHandler = require('../client/js/picHandler');
+const weatherHandler = require('../client/js/weatherHandler');
 
 //modules
 const path = require('path');
@@ -31,12 +33,12 @@ app.get('/allData', (req, res) => {
 });
 
 // Geonames API
-app.post("/geo", apiHandlers.handleGeonamesRequest);
+app.post("/geo", geoHandler.handleGeonamesRequest);
 
 // Weatherbit API
-app.post("/weather", apiHandlers.handleWeatherbitRequest);
+app.post("/weather", weatherHandler.handleWeatherbitRequest);
 
 // Pixabay API
-app.post("/pixabay", apiHandlers.handlePixabayRequest);
+app.post("/pixabay", picHandler.handlePixabayRequest);
 
 module.exports = app;
