@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const path = require('path');
-dotenv.config({ path: "./.env" });
+dotenv.config({ path: "../../.env" });
 const fetch = require('node-fetch');
 
 // Geonames API
