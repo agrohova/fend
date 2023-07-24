@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const dotenv = require('dotenv');
-dotenv.config({ path: "./.env" });
+const path = require('path');
+dotenv.config({ path: "../../.env" });
 
 // Pixabay API
 const apiKey3 = process.env.API_KEY3;

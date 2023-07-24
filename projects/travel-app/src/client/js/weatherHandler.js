@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
-dotenv.config({ path: "./.env" });
+const path = require('path');
+dotenv.config({ path: "../../.env" });
 const fetch = require('node-fetch');
 import { getLatLon } from "./geoHandler"
 
