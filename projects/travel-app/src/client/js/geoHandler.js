@@ -1,5 +1,10 @@
+const dotenv = require('dotenv');
+dotenv.config({ path: "./.env" });
 const fetch = require('node-fetch');
-const { userName1, baseURL1 } = require('../apiConfig');
+
+// Geonames API
+const userName1 = process.env.USER_NAME1;
+const baseURL1 = "https://api.geonames.org/citiesJSON?";
 
 async function handleGeonamesRequest(req, res) {
   const cityName = req.body.city;

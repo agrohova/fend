@@ -1,5 +1,10 @@
 const fetch = require('node-fetch');
-const { apiKey3, baseURL3 } = require('../apiConfig');
+const dotenv = require('dotenv');
+dotenv.config({ path: "./.env" });
+
+// Pixabay API
+const apiKey3 = process.env.API_KEY3;
+const baseURL3 = "https://pixabay.com/api/?";
 
 async function handlePixabayRequest(req, res) {
   const cityNamePix = req.body.city;

@@ -1,6 +1,11 @@
+const dotenv = require('dotenv');
+dotenv.config({ path: "./.env" });
 const fetch = require('node-fetch');
-const { apiKey2, baseURL2 } = require('../apiConfig')
 import { getLatLon } from "./geoHandler"
+
+// Weatherbit API
+const apiKey2 = process.env.API_KEY2;
+const baseURL2 = "https://api.weatherbit.io/v2.0/forecast/daily?";
 
 async function handleWeatherbitRequest(req, res) {
   const cityName = req.body.city;
