@@ -10,7 +10,6 @@ const serverURL = 'http://localhost:4000';
 async function handleSubmit(event) {
   event.preventDefault();
   const city = document.getElementById('city').value;
-  const depDate = document.getElementById('depDate').value;
 
   try {
     // Make API requests and wait for all of them to complete using Promise.all
@@ -53,9 +52,11 @@ async function postRequest(url, data) {
 
 // Function to update the UI with trip information
 function updateUI(data) {
+  const depDate = document.getElementById('depDate').value;
+  const targetDate = new Date(depDate);
   document.getElementById('cityInfo').innerHTML = `In ${timeToDep(targetDate)} days you're going to ${data.city}!`;
   document.getElementById('weatherInfo').innerHTML = `Weather in ${data.city} in the last 7 days: ${data.weather}`;
   document.getElementById('picInfo').innerHTML = `<img src="${data.pic}" alt="City Image">`;
 }
 
-export { updateUI, handleSubmit }
+export { updateUI, handleSubmit, postRequest }

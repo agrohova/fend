@@ -33,4 +33,4 @@ async function getPics(cityNamePix) {
 }
 
 //Exports
-module.exports = { handlePixabayRequest };
+export { handlePixabayRequest, getPics };

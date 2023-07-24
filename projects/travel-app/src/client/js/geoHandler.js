@@ -33,4 +33,4 @@ async function getLatLon(cityName) {
 }
 
 //Exports
-module.exports = { handleGeonamesRequest }
+export { getLatLon, handleGeonamesRequest}

@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const { apiKey2, baseURL2 } = require('../apiConfig')
+import { getLatLon } from "./geoHandler"
 
 async function handleWeatherbitRequest(req, res) {
   const cityName = req.body.city;
@@ -36,4 +37,4 @@ async function getWeather(lat, lon) {
 }
 
 //Exports
-module.exports = { handleWeatherbitRequest }
+export { handleWeatherbitRequest, getWeather }

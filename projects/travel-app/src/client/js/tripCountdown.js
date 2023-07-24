@@ -12,8 +12,6 @@ function todaysDate() {
 
 console.log('today is ' + todaysDate());
 
-//export function
-export {todaysDate}
 
 //function to obtain time to departure
 function timeToDep(tripDate) {
@@ -29,4 +27,4 @@ function timeToDep(tripDate) {
 console.log('You are departing on your trip in ' + timeinDays + 'days')
 
 //export function
-export {timeToDep}
+export { timeToDep, todaysDate }
