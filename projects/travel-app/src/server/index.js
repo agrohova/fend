@@ -32,6 +32,8 @@ app.get('/allData', (req, res) => {
   }
 });
 
+//HTTP POST route
+
 // Geonames API
 app.post("/geo", geoHandler.handleGeonamesRequest);
 
